@@ -1,3 +1,1 @@
-var optener = document.getElementById("txtIdentificacion").nodeValue;
-onclick ="alert(optener)";
-
+var prueba = document.getElementById("txtIdentificacion").value;
