@@ -6,53 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
     <title>registroV3</title>
+   
 </head> 
 <body>
     <div class="container">
         <h1>Registro de usuarios</h1>
         <br>
-        <form action="" class="">
+        <form action="" method="post" onsubmit="return validacion()">
             <div class="form-group">
-                <label for =identificacionUsuario>Identificación</label>
-                <input class="form-control" id="txtIdentificacion" type="text" placeholder="Ingresar Identificación"/>
+                <label for ="txtIdentificacion">Identificación</label>
+                <input class="form-control" id="txtIdentificacion" type="number" placeholder="Ingresar Identificación" required>
             </div>
             <div class="form-group">
-                <label for="nombreUsuario">Nombre</label>
-                <input class="form-control" id="txtNombre"  type="text" placeholder="Ingresar nombre" >
+                <label for="txtNombre">Nombre</label>
+                <input class="form-control" id="txtNombre"  type="text" placeholder="Ingresar nombre" maxlength="50" required>
             </div>
             <div class="form-group">
-                <label for="apellidosUsuario">Apellidos</label>
-                <input class="form-control" id="txtApellidos" type="text" placeholder="Ingresar los apellidos">
+                <label for="txtApellidos">Apellidos</label>
+                <input class="form-control" id="txtApellidos" type="text" placeholder="Ingresar los apellidos" maxlength="50" required>
             </div>
             <div class="form-group">
-                <label for="edadUsuario">Edad</label>
-                <input class="form-control" id="txtEdad" type="number" placeholder="Ingresar tu edad">
+                <label for="txtEdad">Edad</label>
+                <input class="form-control" id="txtEdad" type="number" placeholder="Ingresar tu edad" required>
             </div>
             <div class="form-group">
-            <label for="profesionUsuario">Profesion</label>
-            <input class="form-control" id="txtProfesion" type="text" placeholder="Ingresar tu profesión">
+            <label for="txtProfesion">Profesion</label>
+            <input class="form-control" id="txtProfesion" type="text" placeholder="Ingresar tu profesión" maxlength="50" required>
             </div>
             <div class="form-group">
             <label for="opcionGenero">Género</label>
-            <select class="form-control" id="ddlGenero">
+            <select class="form-control" id="opcionGenero" required>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option> 
-                <option value="otros">Otro</option>
             </select>
             </div>
             <div class="form-group">
             <label for="opcionEstadoCivil">Estado civil </label>
-            <select class="form-control" id="ddlEstadoCivil">
-                <option value="casado">Casado</option>
-                <option value="soltero">Soltero</option>
+            <select class="form-control" id="opcionEstadoCivil" required>
+                <option value="soltero">Casado</option>
+                <option value="casado">Soltero</option>
             </select>
             </div>
             <div class="form-group">
-            <button class="btn btn-primary">Registrar</button>
+            <button onclick="">Click me</button>
             </div>
         </form>
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/validacion.js"></script>
 </body>
 </html> 
