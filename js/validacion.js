@@ -1,25 +1,20 @@
 
-function validarNumeros(valoHtml,itm){
+function validarNumeros(valoHtml){
     var expresion = /^[0-9]+$/;
-    if (expresion.test(valoHtml.value)){
-       valoHtml.style.borderColor="#80FF00";
+    if (expresion.test(valorHtml.value)){
        valor = true;
     }
     else{
-        valoHtml.style.borderColor="#FF0000";
         valor = false;
     }
 }
 function validarAlfabetico(valoHtml,itm){
-    var expresion = /^([ñ a-z A-Z ñáéíóú]{2,60})$/;
-    if(expresion.test(valoHtml.value)){
-        valoHtml.style.borderColor="#80FF00";
+    var expresion = /^([a-z A-Z ñáéíóú]{1,50})$/;
+    if(expresion.test(valorHtml.value)){
         valor = true;
     }
     else{
-        valoHtml.style.borderColor="#FF0000";
         valor = false;
-          
     }
 }
 function validarSubmit(){  
@@ -28,56 +23,63 @@ function validarSubmit(){
     var nombre = document.getElementById("txtNombre");
     var apellidos = document.getElementById("txtApellidos");
     var edad = document.getElementById("txtEdad");
-    var itm = 0;
+    
     if(identificacion.value ===""|| nombre.value===""|| apellidos.value===""|| edad.value===""|| profesion.value ==="" ){ 
-        alert ("Todos los campos deven estar diligenciados para continuar")
+        alert ("Todos los campos deven estar diligenciados para continuar");
         return false;
     }
-    valoHtml= identificacion
-    validarNumeros(valoHtml,itm);
+    
+    valorHtml = identificacion;
+    validarNumeros(valorHtml);
    
     if(valor == false){
-        alert("El campo identificación esta incorrecto inténtalo nuevamente");
-        itm = itm + 1;
+        alert("El campo identificación esta incorrecto inténtalo nuevamente ");
+        document.getElementById("groupIdentificacion").className = "form-group has-error";
         identificacion.focus();
         return false;
+    }else{
+        document.getElementById("groupIdentificacion").className = "form-group has-success";
     }
-    valoHtml = nombre;
-    validarAlfabetico(valoHtml,itm);
+    valorHtml = nombre;
+    validarAlfabetico(valorHtml);
 
     if(valor == false){
         alert("El campo nombre esta incorrecto inténtalo nuevamente");
-        itm = itm + 1;
+        document.getElementById("groupNombre").className = "form-group has-error";
         nombre.focus();
         return false;
+    }else{
+        document.getElementById("groupNombre").className = "form-group has-success";
     }
-    valoHtml = apellidos;
-    validarAlfabetico(valoHtml,itm);
+    valorHtml = apellidos;
+    validarAlfabetico(valorHtml);
 
     if(valor == false){
         alert("El campo apellidos esta incorrecto inténtalo nuevamente");
-        itm = itm + 1;
+        document.getElementById("groupApellidos").className = "form-group has-error";
         apellidos.focus();
         return false;
+    }else{
+        document.getElementById("groupApellidos").className = "form-group has-success";
     }
-    valoHtml = edad ;
-    validarNumeros(valoHtml,itm);
+    valorHtml = edad;
+    validarNumeros(valorHtml);
 
     if(valor == false){
         alert("El campo edad esta incorrecto inténtalo nuevamente");
-        itm = itm + 1;
+        document.getElementById("groupEdad").className = "form-group has-error";
         edad.focus();
         return false;
+    }else{
+        document.getElementById("groupEdad").className = "form-group has-success";
     }
     valoHtml = profesion;
-    validarAlfabetico(valoHtml,itm);
+    validarAlfabetico(valoHtml);
     if(valor == false){
         alert("El campo profesión esta incorrecto inténtalo nuevamente");
-        itm = itm + 1;
+        document.getElementById("groupProfesion").className = "form-group has-error";
         profesion.focus();
-        return false;
-    }
-    if(itm == 0){
-        alert("Felicidades "+ nombre.value +" "+apellidos.value+ " has sido registado con exitoso");
-    }
+        return false;     
+   }
+    alert("Felicidades "+ nombre.value +" "+apellidos.value+ " has sido registado con exitoso");
 }
