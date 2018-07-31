@@ -1,16 +1,16 @@
 
-function validarNumeros(valoHtml){
+function validarNumeros(elementoEnValidacion){
     var expresion = /^[0-9]+$/;
-    if (expresion.test(valorHtml.value)){
+    if (expresion.test(elementoEnValidacion.value)){
        valor = true;
     }
     else{
         valor = false;
     }
 }
-function validarAlfabetico(valoHtml,itm){
+function validarAlfabetico(elementoEnValidacion){
     var expresion = /^([a-z A-Z ñáéíóú]{1,50})$/;
-    if(expresion.test(valorHtml.value)){
+    if(expresion.test(elementoEnValidacion.value)){
         valor = true;
     }
     else{
@@ -24,13 +24,11 @@ function validarSubmit(){
     var apellidos = document.getElementById("txtApellidos");
     var edad = document.getElementById("txtEdad");
     
-    if(identificacion.value ===""|| nombre.value===""|| apellidos.value===""|| edad.value===""|| profesion.value ==="" ){ 
-        alert ("Todos los campos deven estar diligenciados para continuar");
+    if(identificacion.value ==""|| nombre.value ==""|| apellidos.value ==""|| edad.value ==""|| profesion.value ==""){ 
+        alert ("Todos los campos deben estar diligenciados para continuar");
         return false;
     }
-    
-    valorHtml = identificacion;
-    validarNumeros(valorHtml);
+    validarNumeros(identificacion);
    
     if(valor == false){
         alert("El campo identificación esta incorrecto inténtalo nuevamente ");
@@ -40,8 +38,7 @@ function validarSubmit(){
     }else{
         document.getElementById("groupIdentificacion").className = "form-group has-success";
     }
-    valorHtml = nombre;
-    validarAlfabetico(valorHtml);
+    validarAlfabetico(nombre);
 
     if(valor == false){
         alert("El campo nombre esta incorrecto inténtalo nuevamente");
@@ -51,8 +48,7 @@ function validarSubmit(){
     }else{
         document.getElementById("groupNombre").className = "form-group has-success";
     }
-    valorHtml = apellidos;
-    validarAlfabetico(valorHtml);
+    validarAlfabetico(apellidos);
 
     if(valor == false){
         alert("El campo apellidos esta incorrecto inténtalo nuevamente");
@@ -62,8 +58,7 @@ function validarSubmit(){
     }else{
         document.getElementById("groupApellidos").className = "form-group has-success";
     }
-    valorHtml = edad;
-    validarNumeros(valorHtml);
+    validarNumeros(edad);
 
     if(valor == false){
         alert("El campo edad esta incorrecto inténtalo nuevamente");
@@ -74,7 +69,7 @@ function validarSubmit(){
         document.getElementById("groupEdad").className = "form-group has-success";
     }
     valoHtml = profesion;
-    validarAlfabetico(valoHtml);
+    validarAlfabetico(profesion);
     if(valor == false){
         alert("El campo profesión esta incorrecto inténtalo nuevamente");
         document.getElementById("groupProfesion").className = "form-group has-error";
