@@ -76,5 +76,5 @@ function validarSubmit(){
         profesion.focus();
         return false;     
    }
-    alert("Felicidades "+ nombre.value +" "+apellidos.value+ " has sido registado con exitoso");
+    alert("Felicidades "+ nombre.value +" "+apellidos.value+ " Has sido registrado con éxito");
 }
